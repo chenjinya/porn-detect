@@ -73,7 +73,7 @@ def pornDetect(image_path):
         y, cb, cr = ycbcr
         if 86 <= cb <= 117 and 140 <= cr <= 168:
             cnt += 1
-    rate = cnt / ((w * h * 0.1))
+    rate = cnt / ((w * h * 0.16))
 
     return rate
 
@@ -95,5 +95,5 @@ score = pornDetect(file_path)
 
 log_file_cache.close();
 os.remove(file_path);
-print("porn detect: %s %s %s"%(params1,'socre: ' + str(score),  ' is true' if score > 1 else 'is false'))
+print("porn detect: %s %s %s"%(params1,'socre: ' + str('%.2f' % score),  ' is true' if score > 1 else 'is false'))
 
