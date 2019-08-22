@@ -9,6 +9,9 @@ import string
 import numpy
 import time;
 
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 current_path = os.getcwd();
 
 log_path = current_path + '/porn.log-' + time.strftime("%Y-%m-%d", time.localtime());
@@ -28,12 +31,21 @@ def flattenList(l):
     return _list;
 
 def log(*content):
+    print(content)
     datetime = time.strftime("%Y-%m-%d %H:%M:%S ", time.localtime());
     log_file_cache.writelines(flattenList([datetime,list(content), "\n"]));
 
 
 
 def downloadFile(remote_path, dir_path):
+    def downloading(a,b,c):
+        per=100.0*a*b/c
+        if per>100:
+            per=100
+            print('%.2f%%' % per)
+        else :
+            print('=', end = '' )
+
     try:
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
@@ -43,10 +55,12 @@ def downloadFile(remote_path, dir_path):
 
         file_path = '{}{}{}'.format(dir_path,os.sep,file_name)
         log("saving to: " + file_path)
-        urllib.request.urlretrieve(remote_path,file_path)
+
+        urllib.request.urlretrieve(remote_path,file_path,downloading)
+
         return file_path;
     except IOError as e:
-        log("IOError")
+        log("IOError", e)
     except Exception as e:
         log(e, sys._getframe().f_lineno)
 
