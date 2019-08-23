@@ -17,7 +17,7 @@ Python 黄色、色情图片识别
 
 ## 效果
 
-[效果图](./process.jpg)
+![效果图](./process.jpg)
 
 ## Usage
 
