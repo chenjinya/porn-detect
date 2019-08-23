@@ -15,6 +15,10 @@ Python 黄色、色情图片识别
 
 参考： https://blog.csdn.net/sm9sun/article/details/53319959
 
+## 效果
+
+[效果图](./process.jpg)
+
 ## Usage
 
 run:
