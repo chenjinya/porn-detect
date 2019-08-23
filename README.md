@@ -21,7 +21,7 @@ run:
 
 ```shell
 
-python3 porn_detect.py  https://img3.doubanio.com/view/note/large/public/p10795571.jpg
+python3 porn_detect.py  test_sets/3.jpg
 
 ```
 
@@ -29,16 +29,13 @@ output:
 
 ```shell
 
-
-('argv: ', ['porn_detect.py', 'https://img3.doubanio.com/view/note/large/public/p10795571.jpg'])
-('current path: /Users/jinya/Develop/playground/github.com/porn-detect',)
-('saving to: /Users/jinya/Develop/playground/github.com/porn-detect/porn_detect_temp/p10795571.jpg',)
-====================100.00%
-('download file path: /Users/jinya/Develop/playground/github.com/porn-detect/porn_detect_temp/p10795571.jpg',)
-porn detect: https://img3.doubanio.com/view/note/large/public/p10795571.jpg socre: 7.4573523583036065  is true
+皮肤占比: 0.029348927875243666
+皮肤占人体矩形比: 0.15305323723455083
+是否识别为黄图: False
 
 ```
 
+将变量`save_image`设置为 `True` 后，可以保存关键路径的图片。方便调试。
 
 ## License
 
