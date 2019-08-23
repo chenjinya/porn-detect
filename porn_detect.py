@@ -36,11 +36,10 @@ def pornDetect(image_path):
 
     originW, originH = originImage.size
 
-    originImage.resize((200, int(originH / originW * 200)))
-    # prepareImage = originImage;
+    prepareImage = originImage.resize((200, int(originH / originW * 200)))
 
     # 白平衡 Grey world
-    nimage = numpy.array(originImage)
+    nimage = numpy.array(prepareImage)
     nGreyWorldImage = grey_world(nimage);
     prepareImage = Image.fromarray(nGreyWorldImage).convert('RGB')
     if save_image : prepareImage.save("grey_world." + originImage.format, originImage.format)
@@ -62,7 +61,7 @@ def pornDetect(image_path):
 
     # 降噪参数
     scan_grid_pos = {'x':0, 'y':0}
-    scan_grid_w = 10 #int(min(w,h) / 50)
+    scan_grid_w = 4 #int(min(w,h) / 50)
     scan_grid = [];
     scan_grid_count = 0
     # print(splitData[0])
